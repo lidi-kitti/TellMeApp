@@ -1,3 +1,5 @@
+import random
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.gridlayout import GridLayout
@@ -7,14 +9,24 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.layout import Layout
 from kivy.uix.screenmanager import Screen, ScreenManager
-
+from kivy.uix.screenmanager import SlideTransition
+from kivy.uix.widget import Widget
+from kivy.properties import StringProperty
 Builder.load_string("""
 <StartScreen>:
-    BoxLayout:
+    FloatLayout:
+        orientation: 'vertical'
+        padding:20
+        canvas:
+            Color:
+                rgba: 1, .3, .8, .5
         Label:
             text: 'Hello'
+            pos_hint:{'center_x': .5, 'center_y': .7}
         Button:
             text: 'Start'
+            size_hint: 0.5, 0.2
+            pos_hint:{'center_x': .5, 'center_y': .3}
             on_press: root.manager.current = 'menu'
 <MenuScreen>
     BoxLayout:
@@ -22,25 +34,41 @@ Builder.load_string("""
             text: 'You can choose your vibe'
         Button:
             text: 'first'
-            on_press: root.manager.current = 'first'
+            on_press: 
+                root.manager.current = 'first'
+                root.manager.transition.direction = 'left'
+            
         Button:
             text: 'second'
-            on_press: root.manager.current = 'second'
+            on_press: 
+                root.manager.current = 'second'
+                root.manager.transition.direction = 'left'
 <FirstScreen>
     BoxLayout:
+        size:root.size
         Label:
-            text: 'You can choose your vibe'
+            id:label1
+            text: 'lddldlld'
+        Button:
+            id: button_question
+            text: 'next question'
+            
         Button:
             text: 'change vibe'
-            on_press: root.manager.current = 'menu'
+            on_press: 
+                root.manager.current = 'menu'
+                root.manager.transition.direction = 'right'
 
 <SecondScreen>
     BoxLayout:
         Label:
-            text: 'You can choose your vibe'
+            text: 'Второй вайб'
+            
         Button:
             text: 'change vibe'
-            on_press: root.manager.current = 'menu'
+            on_press: 
+                root.manager.current = 'menu'
+                root.manager.transition.direction = 'right'
 """)
 class MainApp(App):
     def build(self):
