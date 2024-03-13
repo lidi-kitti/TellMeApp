@@ -1,16 +1,66 @@
-# This is a sample Python script.
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.layout import Layout
+from kivy.uix.screenmanager import Screen, ScreenManager
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+Builder.load_string("""
+<StartScreen>:
+    BoxLayout:
+        Label:
+            text: 'Hello'
+        Button:
+            text: 'Start'
+            on_press: root.manager.current = 'menu'
+<MenuScreen>
+    BoxLayout:
+        Label:
+            text: 'You can choose your vibe'
+        Button:
+            text: 'first'
+            on_press: root.manager.current = 'first'
+        Button:
+            text: 'second'
+            on_press: root.manager.current = 'second'
+<FirstScreen>
+    BoxLayout:
+        Label:
+            text: 'You can choose your vibe'
+        Button:
+            text: 'change vibe'
+            on_press: root.manager.current = 'menu'
 
+<SecondScreen>
+    BoxLayout:
+        Label:
+            text: 'You can choose your vibe'
+        Button:
+            text: 'change vibe'
+            on_press: root.manager.current = 'menu'
+""")
+class MainApp(App):
+    def build(self):
+        # crate the screen manager
+        sm =ScreenManager()
+        sm.add_widget(StartScreen(name = 'start'))
+        sm.add_widget(MenuScreen(name='menu'))
+        sm.add_widget(FirstScreen(name='first'))
+        sm.add_widget(SecondScreen(name='second'))
+        return sm
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class StartScreen(Screen):
+    pass
+class MenuScreen(Screen):
+    pass
+class FirstScreen(Screen):
+    pass
+class SecondScreen(Screen):
+    pass
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app = MainApp()
+    app.run()
