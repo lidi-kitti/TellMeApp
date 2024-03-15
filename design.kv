@@ -1,0 +1,90 @@
+<StartScreen>:
+    FloatLayout:
+        orientation: 'vertical'
+        padding:40
+        canvas:
+            Color:
+                rgba: 1, .3, .8, .5
+        Label:
+            text: 'Приветули'
+            pos_hint:{'center_x': .5, 'center_y': .7}
+        Button:
+            text: 'Начать игру'
+            size_hint: 0.5, 0.2
+            pos_hint:{'center_x': .5, 'center_y': .3}
+            on_press: root.manager.current = 'menu'
+<MenuScreen>
+    FloatLayout:
+        orientation: 'vertical'
+        padding:20
+        canvas:
+            Color:
+                rgba: 1, .3, .8, .5
+        Label:
+            text: 'Ты можешь выбрать вайб вопросов'
+            pos_hint:{'center_x': .5, 'center_y': .7}
+        Button:
+            text: 'первый'
+            size_hint: 0.2, 0.2
+            pos_hint:{'center_x': .3, 'center_y': .3}
+            on_press:
+                root.manager.current = 'first'
+                root.manager.transition.direction = 'left'
+
+        Button:
+            text: 'второй'
+            size_hint: 0.2, 0.2
+            pos_hint:{'center_x': .7, 'center_y': .3}
+            on_press:
+                root.manager.current = 'second'
+                root.manager.transition.direction = 'left'
+<FirstScreen>
+    id: first_screen
+    FloatLayout:
+        orientation: 'vertical'
+        padding:20
+        canvas:
+            Color:
+                rgba: 1, .3, .8, .5
+        Label:
+            id:name_label
+            text: first_screen.question_label_text()
+
+        Button:
+            id: button_question
+            text: 'следующий квешн'
+            size_hint: 0.2, 0.2
+            pos_hint:{'center_x': .3, 'center_y': .3}
+            on_press:
+                root.change_text()
+        Button:
+            text: 'сменить вайб'
+            size_hint: 0.2, 0.2
+            pos_hint:{'center_x': .7, 'center_y': .3}
+            on_press:
+                root.manager.current = 'menu'
+                root.manager.transition.direction = 'right'
+
+<SecondScreen>
+    FloatLayout:
+        orientation: 'vertical'
+        padding:20
+        canvas:
+            Color:
+                rgba: 1, 0, 1, 1
+        Label:
+            text: 'Второй вайб'
+        Button:
+            id: button_question
+            text: 'следующий квешн'
+            size_hint: 0.2, 0.2
+            pos_hint:{'center_x': .3, 'center_y': .3}
+
+        Button:
+            text: 'change vibe'
+            size_hint: 0.2, 0.2
+            pos_hint:{'center_x': .7, 'center_y': .3}
+            on_press:
+                root.manager.current = 'menu'
+                root.manager.transition.direction = 'right'
+

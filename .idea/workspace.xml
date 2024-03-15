@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0218677-927d-49ee-bdda-ae7f16adff26" name="Changes" comment="я добавила разметку на первом экране, придумать, как добавить текст из файла у меня не вышло((">
-      <change afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
+    <list default="true" id="c0218677-927d-49ee-bdda-ae7f16adff26" name="Changes" comment="я добавила чтение файла, но пока не читается">
+      <change afterPath="$PROJECT_DIR$/design.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.kv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,13 +104,22 @@
       <option name="project" value="LOCAL" />
       <updated>1710349866247</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="я добавила чтение файла, но пока не читается">
+      <option name="closed" value="true" />
+      <created>1710435484774</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710435484774</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="first steps))" />
     <MESSAGE value="я добавила разметку на первом экране, придумать, как добавить текст из файла у меня не вышло((" />
-    <option name="LAST_COMMIT_MESSAGE" value="я добавила разметку на первом экране, придумать, как добавить текст из файла у меня не вышло((" />
+    <MESSAGE value="я добавила чтение файла, но пока не читается" />
+    <option name="LAST_COMMIT_MESSAGE" value="я добавила чтение файла, но пока не читается" />
   </component>
 </project>
