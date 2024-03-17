@@ -31,13 +31,32 @@ class MenuScreen(Screen):
     pass
 class FirstScreen(Screen):
     name_label_text = StringProperty()
+    #попытки добавить изменение текста при нажатии на кнопку, но почему-то еще не получилось
     def question_label_text(self, *args):
-        question = str(open("text.txt","r").read())
+        #a = str(open("text.txt").readlines())
+        #a = a.split(';')
+       # randomOffset= random.randrange(0, len(a))
+       # for i in range(len(a)):
+       #question = str(open("text.txt","r").read())
+            #question = a[i-randomOffset]
+        question = 'вопросик '
         self.name_label_text = question
         # main_label.text = question
-        return question
+        return self.name_label_text
     def change_text(self):
-        self.name_label_text = str(open("text.txt","r").read())
+
+        a = str(open("text.txt","r").read())
+        a = a.split('\n')
+        print(a)
+        randomOffset = random.randrange(0, len(a))
+        #for i in range(len(a)):
+            # question = str(open("text.txt","r").read())
+        #    question = a[i - randomOffset]
+        #    self.name_label_text = question
+        #self.name_label_text = ''
+        self.lbl.text = a[randomOffset]
+        #return self.name_label_text
+       # self.name_label_text = str(open("text.txt","r").read())
 class SecondScreen(Screen):
     pass
 

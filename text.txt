@@ -1,1 +1,8 @@
-hello
+hello;
+what is your name;
+dog;
+cat;
+white;
+something;
+you are cool;
+grate;

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0218677-927d-49ee-bdda-ae7f16adff26" name="Changes" comment="я добавила чтение файла, но пока не читается">
-      <change afterPath="$PROJECT_DIR$/design.kv" afterDir="false" />
+    <list default="true" id="c0218677-927d-49ee-bdda-ae7f16adff26" name="Changes" comment="ееееееееее у меня получилось вывести сообщение из файла ура ура!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/button.kv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/design.kv" beforeDir="false" afterPath="$PROJECT_DIR$/design.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710435484774</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ееееееееее у меня получилось вывести сообщение из файла ура ура!">
+      <option name="closed" value="true" />
+      <created>1710515625481</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710515625481</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -120,6 +128,7 @@
     <MESSAGE value="first steps))" />
     <MESSAGE value="я добавила разметку на первом экране, придумать, как добавить текст из файла у меня не вышло((" />
     <MESSAGE value="я добавила чтение файла, но пока не читается" />
-    <option name="LAST_COMMIT_MESSAGE" value="я добавила чтение файла, но пока не читается" />
+    <MESSAGE value="ееееееееее у меня получилось вывести сообщение из файла ура ура!" />
+    <option name="LAST_COMMIT_MESSAGE" value="ееееееееее у меня получилось вывести сообщение из файла ура ура!" />
   </component>
 </project>
