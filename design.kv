@@ -2,90 +2,178 @@
     FloatLayout:
         orientation: 'vertical'
         padding:40
-        canvas:
+        canvas.before:
             Color:
-                rgba: 1, .3, .8, .5
+                rgba: [34/255, 95/255, 155/255, 1]
+            Rectangle:
+        # self here refers to the widget i.e FloatLayout
+                pos: self.pos
+                size: self.size
         Label:
             text: 'Приветули'
+            color: [1,1,1,1]
+            markup: True
             pos_hint:{'center_x': .5, 'center_y': .7}
         Button:
             text: 'Начать игру'
             size_hint: 0.5, 0.2
+            color: [34/255, 95/255, 155/255, 1]
             pos_hint:{'center_x': .5, 'center_y': .3}
             on_press: root.manager.current = 'menu'
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
 <MenuScreen>
     FloatLayout:
         orientation: 'vertical'
         padding:20
-        canvas:
+        canvas.before:
             Color:
-                rgba: 1, .3, .8, .5
+                rgba: [34/255, 95/255, 155/255, 1]
+            Rectangle:
+        # self here refers to the widget i.e FloatLayout
+                pos: self.pos
+                size: self.size
         Label:
             text: 'Ты можешь выбрать вайб вопросов'
             pos_hint:{'center_x': .5, 'center_y': .7}
         Button:
             text: 'первый'
             size_hint: 0.2, 0.2
+            color: [34/255, 95/255, 155/255, 1]
             pos_hint:{'center_x': .3, 'center_y': .3}
             on_press:
                 root.manager.current = 'first'
                 root.manager.transition.direction = 'left'
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
 
         Button:
             text: 'второй'
             size_hint: 0.2, 0.2
+            color: [34/255, 95/255, 155/255, 1]
             pos_hint:{'center_x': .7, 'center_y': .3}
             on_press:
                 root.manager.current = 'second'
                 root.manager.transition.direction = 'left'
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
 <FirstScreen>
     id: first_screen
     lbl: name_label
     FloatLayout:
         orientation: 'vertical'
         padding:20
-        canvas:
+        canvas.before:
             Color:
-                rgba: 1, .3, .8, .5
+                rgba: [34/255, 95/255, 155/255, 1]
+            Rectangle:
+        # self here refers to the widget i.e FloatLayout
+                pos: self.pos
+                size: self.size
         Label:
             id:name_label
             text: first_screen.question_label_text()
-
+            pos_hint:{'center_x': .5, 'center_y': .7}
         Button:
             id: button_question
             text: 'следующий квешн'
+            color: [34/255, 95/255, 155/255, 1]
             size_hint: 0.2, 0.2
             pos_hint:{'center_x': .3, 'center_y': .3}
             on_press:
                 root.change_text()
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
         Button:
             text: 'сменить вайб'
             size_hint: 0.2, 0.2
+            color: [34/255, 95/255, 155/255, 1]
             pos_hint:{'center_x': .7, 'center_y': .3}
             on_press:
                 root.manager.current = 'menu'
                 root.manager.transition.direction = 'right'
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
 
 <SecondScreen>
+    id: second_screen
+    lbl: name_label
     FloatLayout:
         orientation: 'vertical'
         padding:20
-        canvas:
+        canvas.before:
             Color:
-                rgba: 1, 0, 1, 1
+                rgba: [34/255, 95/255, 155/255, 1]
+            Rectangle:
+        # self here refers to the widget i.e FloatLayout
+                pos: self.pos
+                size: self.size
         Label:
             text: 'Второй вайб'
+            id:name_label
+
+            text: second_screen.question_label_text()
+            pos_hint:{'center_x': .5, 'center_y': .7}
         Button:
             id: button_question
             text: 'следующий квешн'
+            color: [34/255, 95/255, 155/255, 1]
             size_hint: 0.2, 0.2
             pos_hint:{'center_x': .3, 'center_y': .3}
-
+            on_press:
+                root.change_text()
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
         Button:
-            text: 'change vibe'
+            text: 'сменить вайб'
             size_hint: 0.2, 0.2
+            color: [34/255, 95/255, 155/255, 1]
             pos_hint:{'center_x': .7, 'center_y': .3}
             on_press:
                 root.manager.current = 'menu'
                 root.manager.transition.direction = 'right'
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: [247/255,240/255,210/255,1] if self.state=='normal' else (180,189,245,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
 

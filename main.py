@@ -1,4 +1,6 @@
 import random
+
+import kivy.uix.label
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.gridlayout import GridLayout
@@ -10,6 +12,7 @@ from kivy.uix.layout import Layout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.screenmanager import SlideTransition
 from kivy.uix.widget import Widget
+
 from kivy.properties import StringProperty, ObjectProperty
 Builder.load_file('design.kv')
 class MainApp(App):
@@ -31,34 +34,37 @@ class MenuScreen(Screen):
     pass
 class FirstScreen(Screen):
     name_label_text = StringProperty()
-    #попытки добавить изменение текста при нажатии на кнопку, но почему-то еще не получилось
+
     def question_label_text(self, *args):
-        #a = str(open("text.txt").readlines())
-        #a = a.split(';')
-       # randomOffset= random.randrange(0, len(a))
-       # for i in range(len(a)):
-       #question = str(open("text.txt","r").read())
-            #question = a[i-randomOffset]
+
         question = 'вопросик '
         self.name_label_text = question
         # main_label.text = question
         return self.name_label_text
     def change_text(self):
 
-        a = str(open("text.txt","r").read())
+        a = str(open("text.txt","r",encoding="utf8").read()) #читаем файл
+        #a = a.split('\n')
+        a = a.split(';\n')
+        print(a)
+        randomOffset = random.randrange(0, len(a))
+        self.lbl.text = a[randomOffset] #рандомно строку выводим
+
+class SecondScreen(Screen):
+    name_label_text = StringProperty()
+
+    def question_label_text(self, *args):
+        question = 'вопросик '
+        self.name_label_text = question
+        # main_label.text = question
+        return self.name_label_text
+
+    def change_text(self):
+        a = str(open("text.txt", "r", encoding="utf8").read())  # читаем файл
         a = a.split('\n')
         print(a)
         randomOffset = random.randrange(0, len(a))
-        #for i in range(len(a)):
-            # question = str(open("text.txt","r").read())
-        #    question = a[i - randomOffset]
-        #    self.name_label_text = question
-        #self.name_label_text = ''
-        self.lbl.text = a[randomOffset]
-        #return self.name_label_text
-       # self.name_label_text = str(open("text.txt","r").read())
-class SecondScreen(Screen):
-    pass
+        self.lbl.text = a[randomOffset]  # рандомно строку выводим
 
 if __name__ == '__main__':
     app = MainApp()
