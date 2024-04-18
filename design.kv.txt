@@ -15,20 +15,48 @@
             markup: True
             pos_hint:{'center_x': .5, 'center_y': .8}
         Label:
-            text: 'Как-то на новый год я решила сыграть\n во что-то похожее со своими родителями'
+            text: 'Как-то на новый год я решила сыграть'
+
             color: [1,1,1,1]
             markup: True
-            pos_hint:{'center_x': .5, 'center_y': .73}
+            pos_hint:{'center_x': .5, 'center_y': .75}
         Label:
-            text:'было душевно) Первый праздник, где мы не обсуждали\n политику или какие-то бытовые проблемы'
+
+            text:'во что-то похожее со своими родителями'
+
             color: [1,1,1,1]
             markup: True
-            pos_hint:{'center_x': .5, 'center_y': .66}
+            pos_hint:{'center_x': .5, 'center_y': .70}
         Label:
-            text:'поэтому, считаю разговоры по душам это 100/10,\n поэтому выбирай вайб беседы, листай вопросы и наслаждайся'
+            text:'было душевно)''Первый праздник, где мы не обсуждали'
+            valign: 'middle'
             color: [1,1,1,1]
             markup: True
-            pos_hint:{'center_x': .5, 'center_y': .59}
+            pos_hint:{'center_x': .5, 'center_y': .65}
+        Label:
+            text:'было душевно)''Первый праздник, где мы не обсуждали'
+            valign: 'middle'
+            color: [1,1,1,1]
+            markup: True
+            pos_hint:{'center_x': .5, 'center_y': .65}
+        Label:
+            text:'политику или какие-то бытовые проблемы'
+            valign: 'middle'
+            color: [1,1,1,1]
+            markup: True
+            pos_hint:{'center_x': .5, 'center_y': .60}
+        Label:
+            text:'поэтому, считаю разговоры по душам это 100/10'
+            valign: 'middle'
+            color: [1,1,1,1]
+            markup: True
+            pos_hint:{'center_x': .5, 'center_y': .55}
+        Label:
+            text:'поэтому выбирай вайб беседы, листай вопросы и наслаждайся'
+            valign: 'middle'
+            color: [1,1,1,1]
+            markup: True
+            pos_hint:{'center_x': .5, 'center_y': .50}
         Button:
             text: 'Начать игру'
             size_hint: 0.5, 0.2
