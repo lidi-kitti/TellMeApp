@@ -1,16 +1,54 @@
-# This is a sample Python script.
+import random
+from kivy.lang import Builder
+from kivy.app import App
+from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.properties import StringProperty, ObjectProperty
+Builder.load_file('design.kv.txt')
+class MainApp(App):
+    def build(self):
+        # crate the screen manager
+        sm =ScreenManager()
+        sm.add_widget(StartScreen(name = 'start'))
+        sm.add_widget(MenuScreen(name='menu'))
+        sm.add_widget(FirstScreen(name='first'))
+        sm.add_widget(SecondScreen(name='second'))
+        return sm
+class StartScreen(Screen):
+    pass
+class MenuScreen(Screen):
+    pass
+class FirstScreen(Screen):
+    name_label_text = StringProperty()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def question_label_text(self, *args):
 
+        question = 'вопросик '
+        self.name_label_text = question
+        # main_label.text = question
+        return self.name_label_text
+    def change_text(self):
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+        a = str(open("text_first_vibe.txt", encoding="utf8").read()) #читаем файл
+        #a = a.split('\n')
+        a = a.split(';\n')
+        print(a)
+        randomOffset = random.randrange(0, len(a))
+        self.lbl.text = a[randomOffset] #рандомно строку выводим
+class SecondScreen(Screen):
+    name_label_text = StringProperty()
 
+    def question_label_text(self, *args):
+        question = 'вопросик '
+        self.name_label_text = question
+        # main_label.text = question
+        return self.name_label_text
 
-# Press the green button in the gutter to run the script.
+    def change_text(self):
+        a = str(open("text_second_vibe.txt", encoding="utf8").read())  # читаем файл
+        a = a.split(';\n')
+        print(a)
+        randomOffset = random.randrange(0, len(a))
+        self.lbl.text = a[randomOffset]  # рандомно строку выводим
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app = MainApp()
+    app.run()
