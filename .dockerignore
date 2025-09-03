@@ -1,0 +1,55 @@
+# Игнорируем файлы Git
+.git
+.gitignore
+
+# Игнорируем файлы Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Игнорируем виртуальные окружения
+venv/
+ENV/
+env/
+.venv/
+
+# Игнорируем IDE файлы
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Игнорируем временные файлы
+*.tmp
+*.temp
+
+# Игнорируем Docker файлы
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Игнорируем документацию
+README.md
+*.md
+
+# Игнорируем системные файлы
+.DS_Store
+Thumbs.db
