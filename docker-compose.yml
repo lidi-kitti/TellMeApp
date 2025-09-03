@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  tellmeapp:
+    build: .
+    container_name: tellmeapp
+    volumes:
+      # Монтируем текущую директорию для разработки
+      - .:/app
+      # Монтируем X11 для отображения GUI (Linux/macOS)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      # Настройки для отображения GUI
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      # Настройки Kivy
+      - KIVY_GL_BACKEND=gl
+      - KIVY_WINDOW=sdl2
+    network_mode: host
+    stdin_open: true
+    tty: true
+    # Для Windows используйте этот вариант вместо network_mode: host
+    # ports:
+    #   - "8000:8000"
