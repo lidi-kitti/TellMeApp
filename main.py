@@ -1,9 +1,23 @@
+import os
 import random
 from kivy.lang import Builder
 from kivy.app import App
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.properties import StringProperty, ObjectProperty
+from kivy.config import Config
+
+# Настройка для headless режима (Docker)
+Config.set('graphics', 'multisamples', '0')
+Config.set('graphics', 'width', '1024')
+Config.set('graphics', 'height', '768')
+Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+
+# Отключение проблемных провайдеров ввода для headless режима
+os.environ['KIVY_WINDOW'] = 'sdl2'
+os.environ['KIVY_GL_BACKEND'] = 'gl'
+
 Builder.load_file('design.kv.txt')
+
 class MainApp(App):
     def build(self):
         # crate the screen manager
@@ -27,13 +41,22 @@ class FirstScreen(Screen):
         # main_label.text = question
         return self.name_label_text
     def change_text(self):
+        try:
+            with open("text_first_vibe.txt", encoding="utf8") as file:
+                content = file.read()
+            questions = content.split(';\n')
+            # Убираем пустые строки
+            questions = [q.strip() for q in questions if q.strip()]
+            if questions:
+                random_offset = random.randrange(0, len(questions))
+                self.lbl.text = questions[random_offset]
+            else:
+                self.lbl.text = "Вопросы не найдены"
+        except FileNotFoundError:
+            self.lbl.text = "Файл с вопросами не найден"
+        except Exception as e:
+            self.lbl.text = f"Ошибка: {str(e)}"
 
-        a = str(open("text_first_vibe.txt", encoding="utf8").read()) #читаем файл
-        #a = a.split('\n')
-        a = a.split(';\n')
-        print(a)
-        randomOffset = random.randrange(0, len(a))
-        self.lbl.text = a[randomOffset] #рандомно строку выводим
 class SecondScreen(Screen):
     name_label_text = StringProperty()
 
@@ -44,11 +67,21 @@ class SecondScreen(Screen):
         return self.name_label_text
 
     def change_text(self):
-        a = str(open("text_second_vibe.txt", encoding="utf8").read())  # читаем файл
-        a = a.split(';\n')
-        print(a)
-        randomOffset = random.randrange(0, len(a))
-        self.lbl.text = a[randomOffset]  # рандомно строку выводим
+        try:
+            with open("text_second_vibe.txt", encoding="utf8") as file:
+                content = file.read()
+            questions = content.split(';\n')
+            # Убираем пустые строки
+            questions = [q.strip() for q in questions if q.strip()]
+            if questions:
+                random_offset = random.randrange(0, len(questions))
+                self.lbl.text = questions[random_offset]
+            else:
+                self.lbl.text = "Вопросы не найдены"
+        except FileNotFoundError:
+            self.lbl.text = "Файл с вопросами не найден"
+        except Exception as e:
+            self.lbl.text = f"Ошибка: {str(e)}"
 if __name__ == '__main__':
     app = MainApp()
     app.run()

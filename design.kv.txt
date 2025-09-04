@@ -182,9 +182,7 @@
                 pos: self.pos
                 size: self.size
         Label:
-            text: 'Второй вайб'
             id:name_label
-
             text: second_screen.question_label_text()
             pos_hint:{'center_x': .5, 'center_y': .7}
         Button:
